@@ -12,6 +12,11 @@ The function doesn't handle opening or closing the file descriptor, it's up to t
 The function can read from standard input if the appropriate file descriptor is passed to it.  
 The bonus part allows for reading from multiple file descriptors at simultaneously.  
 
+### Usage
+
+Add the two .c files from one of the GNL versions to your compilation and include the header file. Call 'get_next_line' to use the function.  
+The function is also added to my [Codam_libft](https://github.com/jmolenaa/Codam_libft)
+
 ### My implementation
 
 I've created three versions of the function that use different ways of storing what was already read.  
@@ -19,8 +24,3 @@ I've created three versions of the function that use different ways of storing w
 ##### GNL_join - joins what has been read with everything that has been read so far.
 ##### GNL_doublearray - stores all buffers read in an array and then concatenates them once a newline or EOF has been read.
 ##### GNL_lists - stores all buffers read in a list and then concatenates them once a newline or EOF has been read.
-
-### Usage
-
-Add the two .c files from one of the GNL versions to your compilation and include the header file. Call 'get_next_line' to use the function.  
-The function is also added to my [Codam_libft](https://github.com/jmolenaa/Codam_libft)
