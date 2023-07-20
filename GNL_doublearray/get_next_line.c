@@ -6,7 +6,7 @@
 /*   By: jmolenaa <jmolenaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/12 16:36:41 by jmolenaa      #+#    #+#                 */
-/*   Updated: 2022/11/24 17:00:45 by jmolenaa      ########   odam.nl         */
+/*   Updated: 2023/07/20 09:26:24 by jmolenaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <fcntl.h>
-
-void	printarray(char **strarray)
-{
-	int 	i;
-	i = 0;
-	while(*(strarray + i) != (NULL))
-	{
-		printf("%s\n", *(strarray + i));
-		i++;
-	}
-}
 
 char	*createreturnstring(char **strarray)
 {
@@ -36,7 +25,7 @@ char	*createreturnstring(char **strarray)
 
 	j = 0;
 	alloc = 0;
-	while(*(strarray + j) != (NULL))
+	while (*(strarray + j) != (NULL))
 	{
 		i = strlenornewline(*(strarray + j));
 		if (*(*(strarray + j) + i) == '\n')
@@ -49,7 +38,7 @@ char	*createreturnstring(char **strarray)
 		return (freeing(&strarray, (NULL)), (NULL));
 	i = 0;
 	j = 0;
-	while(*(strarray + j) != (NULL))
+	while (*(strarray + j) != (NULL))
 	{
 		i = i + stringcpy(returnstr + i, *(strarray + j), BUFFER_SIZE);
 		j++;
@@ -108,7 +97,7 @@ char	**nextlinenobuffer(int fd, char **strarray, char **strtemp, char *buff)
 				return (NULL);
 			*strtemp = substr(buff, check + 1, 0, 0);
 			if (*strtemp == (NULL))
-			 	return (freeing(&strarray, (NULL)));
+				return (freeing(&strarray, (NULL)));
 			return (strarray);
 		}
 		strarray = allocdouble(strarray, buff, 0);
@@ -130,7 +119,7 @@ char	**nextlinewithbuffer(char **strtemp, char **strarray)
 			return (freeing(NULL, strtemp));
 		*strtemp = substr(*strtemp, strtemplenornewline + 1, 0, 1);
 		if (*strtemp == (NULL))
-		 	return (freeing(&strarray, (NULL)));
+			return (freeing(&strarray, (NULL)));
 		return (strarray);
 	}
 	strarray = allocdouble(strarray, *strtemp, 0);
@@ -164,6 +153,6 @@ char	*get_next_line(int fd)
 	if ((strtemp != (NULL) && *strtemp == '\0'))
 		freeing(NULL, &strtemp);
 	if (returnstr != (NULL) && *returnstr == '\0')
-	 	return (free(returnstr), (NULL));
+		return (free(returnstr), (NULL));
 	return (returnstr);
 }
