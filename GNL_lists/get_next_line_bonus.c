@@ -6,7 +6,7 @@
 /*   By: jmolenaa <jmolenaa@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/12 16:36:41 by jmolenaa      #+#    #+#                 */
-/*   Updated: 2022/11/28 13:22:29 by jmolenaa      ########   odam.nl         */
+/*   Updated: 2023/10/15 17:20:18 by jmolenaa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,9 +119,9 @@ char	*get_next_line(int fd)
 {
 	t_list		*strlist;
 	char		*retstr;
-	static char	*strtemp[OPEN_MAX];
+	static char	*strtemp[FOPEN_MAX];
 
-	if (fd < 0 || fd > OPEN_MAX)
+	if (fd < 0 || fd > FOPEN_MAX)
 		return (NULL);
 	strlist = (NULL);
 	if (*(strtemp + fd) != (NULL))
