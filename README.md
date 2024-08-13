@@ -10,7 +10,7 @@ It reads BUFFER_SIZE bytes at a time, the default is 10, but it can be changed d
 In case of any errors it will return a NULL pointer and set errno to the appropiate error.  
 The function doesn't handle opening or closing the file descriptor, it's up to the user to handle this.  
 The function can read from standard input if the appropriate file descriptor is passed to it.  
-The bonus part allows for reading from multiple file descriptors at simultaneously.  
+The bonus part allows for reading from multiple file descriptors simultaneously.  
 
 ### Usage
 
